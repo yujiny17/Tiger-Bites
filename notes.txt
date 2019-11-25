@@ -1,0 +1,1 @@
+before deploying to heroku, make sure to run pip freeze > requirements.txt so heroku knows to update packages

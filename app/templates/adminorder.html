@@ -1,0 +1,57 @@
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>TigerBites Admin Orders</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap-minty.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+	<div class = "container">
+				<div class = "panel">
+					<div class = "panel-body">
+				<table class = "table table-striped" style="width:100%">
+					<tr>
+						<th scope="col">Item</th>
+						<th scope="col">Modifications</th>
+						<th scope="col">Pickup Time</th>
+						<th scope="col">User</th>
+						<th scope="col">Completed</th>
+					</tr>
+
+					{% for order in displayOrders: %}
+						<tr>
+							
+							<td>{{order}}</td>
+							<td>{{order.modifications}}</td>
+							<td>{{order.pickupTime}}</td>
+							<td>{{order.user_id}}</td>
+							<td>
+								<input type="checkbox" id = "completed" onClick="removeOrder()"> 
+
+							</td>
+							
+						</tr>
+					{%		endfor %}
+					</table>
+		</div>
+	</div>
+</div>
+
+  </body>
+
+
+{% endblock %}

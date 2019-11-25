@@ -1,0 +1,32 @@
+
+.header {
+	text-align: center!important;
+
+}
+.container {
+	max-width: 95% !important;
+}
+
+.row {
+	flex-wrap: nowrap !important;
+}
+
+.column {
+	flex: 0 0 calc(100%/7)!important ;
+	padding-left: calc(100%/7*0.05) !important;
+}
+
+.day-menu{
+	width:  !important;
+}
+
+.list-group-item-primary{
+    background-color:#ef811f !important;
+    border-color: #d36d12 !important;
+    color: white !important;
+    letter-spacing: 0.25px !important;
+    text-align: center;
+}
+
+
+}

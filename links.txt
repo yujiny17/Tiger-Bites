@@ -1,0 +1,23 @@
+Postgres:
+---------
+GUIDE: https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
+DOCUMENTATION: https://www.postgresql.org/docs/9.5/index.html
+
+
+Heroku, Flask, Postgres:
+------------------------
+GUIDE: https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc
+
+Comprehensive guide to a basic Flask app:
+-----------------------------------------
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+
+
+Documentation for Flask-SQLAlchemy:
+-----------------------------------
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+
+
+Linking postgreSQL to Heroku:
+-----------------------------
+https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/

@@ -1,0 +1,75 @@
+<html lang="en">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap-minty.css" rel="stylesheet">
+    <link href="/static/css/home.css" rel="stylesheet">
+    
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TigerBites Ordering - Login</title>
+    <link rel='icon' href='/static/img/meal-icon.ico'></link>
+
+    <!-- Custom styles for this template -->
+    <link href="/static/vendor/bootstrap/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/vendor/fontawesome-free/static/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg">
+    <div class="form-signin bg-danger">
+        <h3 class="font-weight-light text-center text-white">WELCOME TO </h3>
+        <h1 class="mb-3 font-weight-bolder text-center text-white">TIGER BITES</h1>
+        <h5 class="font-weight-light text-center text-white">SIGN IN AS A... </h5>
+        <br>
+        <div class="btn-container">
+            <div class="row justify-content-center">
+              <img class="mb-4 display-block center-block align-self-center" src="/static/img/student-hat.png" alt="" width="100" height="100">
+            </div>
+            <button class="btn btn-dark" onclick="window.location.href='{{ url_for('studentlogin') }}';">STUDENT</button>
+        </div>
+
+        <div class="btn-container">
+            <div class="row justify-content-center">
+              <img class="mb-4 display-block center-block align-self-center" src="/static/img/chef-hat.png" alt="" width="90" height="90">
+            </div>
+            <button class="btn btn-dark" onclick="window.location.href='{{ url_for('adminlogin') }}';">CLUB ADMIN</button>
+        </div>
+    </div>   
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="header form-signin"></div>
+        <hr>
+
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        </div> 
+        {% endif %}
+        {% endwith %}
+    
+      <footer class="py-4 orange-bar sticky-footer">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; TigerBites 2020</p>
+        </div>
+      </footer>
+    </body>
+
+</html>

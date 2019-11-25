@@ -1,0 +1,139 @@
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="/static/css/normalize.min.css">
+    <link rel="stylesheet" href="/static/css/animate.min.css">
+    <style>
+        #closebt-container {
+          position: relative;
+          width:100%;
+          text-align:center;
+          margin-top:40px;
+        }
+
+        .closebt {
+          -webkit-transition: all 0.2s;
+          -moz-transition: all 0.2s;
+          -ms-transition: all 0.2s;
+          -o-transition: all 0.2s;
+          transition: all 0.2s;
+          cursor:pointer;
+        }
+
+        .closebt:hover {
+          transform:rotate(90deg);
+        }
+
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand" href="{{ url_for('index') }}">Tiger Bites</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('menu') }}">Menu<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"> 
+        <a id='studentorder' class="nav-link" href="#animatedOrderModal" onclick="doClick(); return false;">Order</a></li>
+      <li class="nav-item"> 
+        <a id='canorder' class="nav-link" href="#animatedInvalidPeriodModal" onclick="doClick(); return false;">Order?</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Notifications</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Feedback</a>
+      </li>
+
+    </ul>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+          </li>
+      </ul>
+    </div>
+</nav>
+
+
+<body>
+    <!--STUDENTORDER-->
+    <div id="animatedOrderModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+        <div  id="closebt-container" class="close-animatedOrderModal"> 
+          <img class="closebt" src="/static/img/cross.png">
+        </div>
+            
+            <div class="card border-danger mb-3 form-signin" style="max-width: 30rem;">
+              <div class="card-header">Order Takeout</div>
+              <div class="card-body">
+                <h4 class="card-title">Dinner</h4>
+                <div class="form-group">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+                    <label class="custom-control-label" for="customRadio1">Spaghetti with Meatballs</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio2">Vegetarian Option</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <select class="custom-select">
+                    <option selected="">Select Pick-up Time</option>
+                    <option value="1">6:00-6:30</option>
+                    <option value="2">6:30-7:00</option>
+                    <option value="3">7:00-7:30</option>
+                    <option value="3">7:30-8:00</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleTextarea">Extra notes</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary close-animatedOrderModal">Submit</button>
+              </div>
+            </div>
+    </div>
+
+    <!--ORDER-->
+    <div id="animatedInvalidPeriodModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+        <div  id="closebt-container" class="close-animatedInvalidPeriodModal"> 
+          <img class="closebt" src="/static/img/cross.png">
+        </div>
+            
+            <div class="card border-danger mb-3 form-signin" style="max-width: 30rem;">
+              <div class="card-header">Not an Order Period</div>
+              <div class="card-body">
+                <h4 class="card-title">Try again later!</h4>
+              </div>
+        </div>
+    </div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/animatedModal.js"></script>
+    <script>
+
+        //demo 01
+        $("#studentorder").animatedModal();
+        $("#canorder").animatedModal();
+        function doClick() {
+           if ({{currPeriod[0]}})
+               window.location.href = "#animatedOrderModal";
+           else
+               window.location.href = "#animatedInvalidPeriodModal";
+        }
+    </script>
+
+</body>

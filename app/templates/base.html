@@ -1,0 +1,35 @@
+<html lang="en">
+    
+    <head> 
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap-minty.css" rel="stylesheet">
+    <link href="/static/css/home.css" rel="stylesheet">
+    </head>
+    
+    <!-- NAVBAR CONTENT -->
+
+    {% include 'header.html' %}
+    <body>
+    
+    {% block content %}{% endblock %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <hr>
+        <ul>
+            {% for message in messages %}
+            <h5 class="font-weight-light text-center text-white">{{ message }} </h5>
+            {% endfor %}
+            
+        </ul>
+        {% endif %}
+        {% endwith %}
+      </div>
+      <footer class="py-4 orange-bar footer fixed-bottom">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; TigerBites 2020</p>
+        </div>
+      </footer>
+    </body>
+
+</html>

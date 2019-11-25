@@ -1,0 +1,181 @@
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>TigerBites Admin Menu</title>
+
+    <!-- homemade CSS for this page -->
+    <link rel="stylesheet" type="text/css" href="static/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="static/css/adminmenu.css">
+
+
+    <!-- Bootstrap core CSS -->
+
+  </head>
+
+  <body>
+    <div class="header form-signin" id="first-element">
+            <h3 class="font-weight-light text-center">Admin Menu</h3>
+            <div class="row justify-content-center">
+                <div class="column">
+                    <ul class="list-group day-menu weekend" id="Sunday">
+                        <li class="list-group-item list-group-item-primary">
+                            Sunday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary SundayLunch">Lunch
+                            <button onclick="editDescription(this)" id="descriptionButtonSundayLunch">EDIT</button>
+                        </li>
+                        {% for item in displaySunLunch %}
+                        <li class="list-group-item menu-item">
+                            {{item}}
+                            <button onclick="removeItem(this)" id="removeButtonSundayLunch">&times;</button>
+                        {% endfor %}
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonSundayLunch" onclick="addInputField('SundayLunch')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary SundayDinner">Dinner</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonSundayDinner" onclick="addInputField('SundayDinner')">Add</button>
+                        </li>
+
+                    </ul>
+                </div>
+              
+                <div class="column">
+                    <ul class="list-group day-menu" id="Monday">
+                        <li class="list-group-item list-group-item-primary">
+                            Monday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary MondayBreakfast">Breakfast</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonMondayBreakfast" onclick="addInputField('MondayBreakfast')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary MondayLunch">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonMondayLunch" onclick="addInputField('MondayLunch')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary MondayDinner">Dinner</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonMondayDinner" onclick="addInputField('MondayDinner')">Add</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="list-group day-menu">
+                        <li class="list-group-item list-group-item-primary">
+                            Tuesday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary TuesdayBreakfast">Breakfast</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonTuesdayBreakfast" onclick="addInputField('TuesdayBreakfast')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary TuesdayLunch">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonTuesdayLunch" onclick="addInputField('TuesdayLunch')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary TuesdayDinner">Dinner</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonTuesdayDinner" onclick="addInputField('TuesdayDinner')">Add</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="list-group day-menu">
+                        <li class="list-group-item list-group-item-primary">
+                            Wednesday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary WednesdayBreakfast">Breakfast</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonWednesdayBreakfast" onclick="addInputField('WednesdayBreakfast')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary WednesdayLunch">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonWednesdayLunch" onclick="addInputField('WednesdayLunch')">Add</button>
+                        </li>
+                        <li class="list-group-item list-group-item-secondary WednesdayDinner">Dinner</li>
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonWednesdayDinner" onclick="addInputField('WednesdayDinner')">Add</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="list-group day-menu">
+                        <li class="list-group-item list-group-item-primary">
+                            Thursday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">Breakfast</li>
+                        <li class="list-group-item list-group-item-secondary">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary">Dinner</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="list-group day-menu">
+                        <li class="list-group-item list-group-item-primary">
+                            Friday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">Breakfast</li>
+                        <li class="list-group-item list-group-item-secondary">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary">Dinner</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="list-group day-menu weekend">
+                        <li class="list-group-item list-group-item-primary">
+                            Saturday
+                        </li>
+                        <li class="list-group-item list-group-item-secondary">Lunch</li>
+                        <li class="list-group-item list-group-item-secondary">Dinner</li>
+                    </ul>
+                    </div>
+                    <div class="column">
+                    <ul class="list-group day-menu weekend">
+                        <li class="list-group-item list-group-item-primary">
+                            Daily
+                        </li>
+                        {% for daily in dailyItems%}
+                        <li class="list-group-item menu-item">
+                            {{daily}}
+                            <button onclick="removeItem(this)" id="removeButtonSundayLunch">&times;</button>
+                        {% endfor %}
+                        <li class="list-group-item list-group-item-secondary add">
+                            <button class="addButtonLI" id="addButtonSundayLunch" onclick="addInputField('SundayLunch')">Add</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript 
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+-->
+    <!-- Using JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Plugin JavaScript
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+-->
+    <!-- Custom scripts for this template 
+    <script src="/static/js/creative.min.js"></script>
+-->
+
+    <!-- homemade javascript for this template -->
+    
+    <script src="static/js/adminmenu.js"></script>
+
+  </body>
+
+</html>
+{% endblock %}
